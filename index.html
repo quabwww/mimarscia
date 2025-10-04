@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto Amor 💖</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="contenedor">
+    <div class="card">
+      <img id="imagen" src="fondo-1.jpeg" alt="Imagen romántica" />
+      <p id="texto">Marscia, mi amor 
+no quiero que te sientas mal por mí. No te dije lo que sentía para que te culpes, sino porque confío tanto en ti que puedo mostrarte mis partes más frágiles. Si me sentí mal, fue solo un momento, pero eso no cambia lo que siento por ti.
+Tú eres mi paz, incluso cuando algo me duele. No hay enojo, ni rencor, solo amor.
+Te amo, Marscia, y quiero que estés tranquila. Lo único que necesito es verte bien, sonriendo, siendo tú. Porque incluso cuando algo nos duele, mi corazón sigue eligiéndote sin dudar.</p>
+    </div>
+  </div>
+
+  <audio id="musica" autoplay loop>
+    <source src="real.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    const musica = document.getElementById("musica");
+
+    // Intentar reproducir automáticamente
+    window.addEventListener("load", () => {
+      const playPromise = musica.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Si el navegador bloquea el autoplay, la música sonará al primer clic
+          document.addEventListener("click", () => {
+            musica.play();
+          }, { once: true });
+        });
+      }
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
